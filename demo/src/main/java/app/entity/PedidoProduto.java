@@ -35,5 +35,16 @@ public class PedidoProduto {
 	joinColumns = @JoinColumn(name = "pedido_produto_id"),
 	inverseJoinColumns = @JoinColumn(name = "sabor_id"))
 	private List<Sabor> sabores;
+	
+	
+	/* 
+	 Quando há uma relação N para N simples, utiliza-se o @ManytoMany. Porém, quando
+	 se faz necessário trazer outros atributos dentro dessa tabela da relação no banco de dados,
+	 precisamos escrever a tabela da relação como classe no Java.
+
+	 A relação entre PEDIDO e PRODUTO é N para N. Porém, quando trazemos uma classe
+	  que representa a tabela da relação, que é nosso caso, as cardinalidades mudam e
+	  ficam dessa forma: 
+	 */
 
 }

@@ -39,7 +39,7 @@ public class PedidoService {
 
 	public PedidoDTO save(PedidoDTO pedidoDTO){
 		Pedido pedido = this.toPedido(pedidoDTO);
-
+		
 		Pedido pedidosalva = pedidoRepository.save(pedido);
 
 		return this.toPedidoDTO(pedidosalva);
@@ -84,6 +84,7 @@ public class PedidoService {
 	private PedidoProdutoDTO toPedidoProdutoDTO(PedidoProduto pedidoProduto) {
 		PedidoProdutoDTO pedidoProdutoDTO = new PedidoProdutoDTO();
 
+		pedidoProdutoDTO.setId(pedidoProduto.getId());
 		if(pedidoProduto.getProduto() != null)
 			pedidoProdutoDTO.setProduto(this.produtoService.toProdutoDTO(pedidoProduto.getProduto()));
 
@@ -101,6 +102,7 @@ public class PedidoService {
 	private PedidoProduto toPedidoProduto(PedidoProdutoDTO pedidoProdutoDTO, Pedido pedido) {
 		PedidoProduto pedidoProduto = new PedidoProduto();
 
+		pedidoProduto.setId(pedidoProdutoDTO.getId());
 		pedidoProduto.setPedido(pedido);
 		if(pedidoProdutoDTO.getProduto() != null)
 			pedidoProduto.setProduto(this.produtoService.toProduto(pedidoProdutoDTO.getProduto()));
