@@ -22,13 +22,14 @@ import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration  {
+public class SecurityConfig  {
 
 	@Autowired
 	private JwtAuthenticationFilter jwtAuthFilter;
 
 	@Autowired
 	private AuthenticationProvider authenticationProvider;
+	
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -36,7 +37,8 @@ public class SecurityConfiguration  {
 		.csrf(AbstractHttpConfigurer::disable)
 		.cors(AbstractHttpConfigurer::disable)
 		.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("api/login").permitAll()
+				.requestMatchers("/*").permitAll() //permitir o primeiro nível pra rodar o Angular
+				.requestMatchers("/api/login").permitAll()
 				.anyRequest().authenticated())
 		.authenticationProvider(authenticationProvider)
 		.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
@@ -44,8 +46,8 @@ public class SecurityConfiguration  {
 
 		return http.build();
 	}
-
-
+	
+	
 	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -60,5 +62,6 @@ public class SecurityConfiguration  {
 		bean.setOrder(-102);
 		return bean;
 	}
+	
 
 }

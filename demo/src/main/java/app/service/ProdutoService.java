@@ -39,6 +39,8 @@ public class ProdutoService {
 		produtoDTO.setId(produto.getId());
 		produtoDTO.setNome(produto.getNome());
 		produtoDTO.setValor(produto.getValor());
+		produtoDTO.setTemSabores(produto.isTemSabores());
+		produtoDTO.setMaximoSabores(produto.getMaximoSabores());
 		return produtoDTO;
 	}
 	
@@ -47,6 +49,8 @@ public class ProdutoService {
 		produto.setId(produtoDTO.getId());
 		produto.setNome(produtoDTO.getNome());
 		produto.setValor(produtoDTO.getValor());
+		produto.setTemSabores(produtoDTO.isTemSabores());
+		produto.setMaximoSabores(produtoDTO.getMaximoSabores());
 		return produto;
 	}
 

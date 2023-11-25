@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.dto.ProdutoDTO;
-import app.service.ProdutoService;
+import app.dto.SaborDTO;
+import app.service.SaborService;
 
 @RestController
-@RequestMapping("/api/produto")
+@RequestMapping("/api/sabor")
 @CrossOrigin(origins = "http://localhost:4200")
-public class ProdutoController {
+public class SaborController {
 	
 	@Autowired
-	private ProdutoService produtoService;
+	private SaborService saborService;
 	
 	@GetMapping
-	private ResponseEntity<List<ProdutoDTO>> listAll(){
+	private ResponseEntity<List<SaborDTO>> listAll(){
 		try {		
-			List<ProdutoDTO> lista = produtoService.listAll();
+			List<SaborDTO> lista = saborService.listAll();
 			return new ResponseEntity<>(lista, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -34,10 +34,10 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	private ResponseEntity<ProdutoDTO> save(@RequestBody ProdutoDTO produtoDTO){
+	private ResponseEntity<SaborDTO> save(@RequestBody SaborDTO saborDTO){
 		try {		
-			ProdutoDTO produtoSalva = produtoService.save(produtoDTO);
-			return new ResponseEntity<>(produtoSalva, HttpStatus.OK);
+			SaborDTO saborSalva = saborService.save(saborDTO);
+			return new ResponseEntity<>(saborSalva, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}

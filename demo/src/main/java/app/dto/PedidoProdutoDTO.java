@@ -7,10 +7,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PedidoDTO {
+public class PedidoProdutoDTO {
 
 	private Long id;
-	private String obs;
-	private List<PedidoProdutoDTO> pedidoProdutoList;
+	private PedidoDTO pedido;
+	private ProdutoDTO produto;
+	private List<SaborDTO> sabores;
 
 }

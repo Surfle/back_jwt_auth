@@ -5,12 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProdutoDTO {
+public class SaborDTO {
 
 	private Long id;
 	private String nome;
-	private boolean temSabores;
-	private int maximoSabores;
-	private double valor;
 	
 }

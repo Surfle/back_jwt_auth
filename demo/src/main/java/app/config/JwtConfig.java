@@ -2,7 +2,7 @@ package app.config;
 
 import io.jsonwebtoken.SignatureAlgorithm;
 
-public class JwtParameters {
+public class JwtConfig {
 
 	//Parâmetros para geração do token
 	public static final String SECRET_KEY = "6A576D5A7134743777217A25432A462D4A614E645267556B5870327235753878";

@@ -16,5 +16,7 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	private boolean temSabores;
+	private int maximoSabores;
 	private double valor;
 }

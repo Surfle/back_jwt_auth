@@ -43,9 +43,4 @@ public class PedidoController {
 		}
 	}
 	
-	@GetMapping("erro")
-	private ResponseEntity<List<PedidoDTO>> exemploErro(){
-		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-	}
-
 }
